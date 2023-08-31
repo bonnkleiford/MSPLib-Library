@@ -23,7 +23,6 @@ We present `MSPLib`, a library of multistage stochastic programming problems to 
 <!---
 #### Real-World Application Problems:
 ![MSLP 3](https://user-images.githubusercontent.com/37835698/183904468-9170049b-6ad4-4d2d-b18d-4a134cf7b8db.png)
--->
 
 ### HOW TO USE:
 Each file in the `MSPLib` library follows the following convention:
@@ -223,3 +222,4 @@ $$\begin{align}s.t. \ & volume_t = volume_{t-1} - hydro_t - spill_t + inflow_t, 
          "rhs":
             [150.0]}]}
 ```
+-->
