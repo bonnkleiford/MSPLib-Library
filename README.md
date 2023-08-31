@@ -24,9 +24,6 @@ We present `MSPLib`, a library of multistage stochastic programming problems to 
 #### Real-World Application Problems:
 ![MSLP 3](https://user-images.githubusercontent.com/37835698/183904468-9170049b-6ad4-4d2d-b18d-4a134cf7b8db.png)
 
-### Multistage Stochastic Integer Programming Problems
-![MSIP 1](https://user-images.githubusercontent.com/37835698/183904484-17faf693-1188-402e-9a6a-0ad0a6503c3a.png)
-
 ### HOW TO USE:
 Each file in the `MSPLib` library follows the following convention:
 <p align="center">
