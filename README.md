@@ -3,8 +3,7 @@
   <img width="500" alt="Screenshot 2021-05-20 at 16 19 59" src="https://user-images.githubusercontent.com/37835698/118995880-c6aecc80-b987-11eb-9b1d-094634e3b9d0.png">
 </p>
 
-### MSPLib Problems Library **initial** repository for synthetic problems
-### THIS LIBRARY WILL BE AVAILABLE STARTING END OF 2023
+### MSPLib Problems Library **initial** repository for synthetic problems.
 
 # Welcome to MSPLib Problem Library!
 
