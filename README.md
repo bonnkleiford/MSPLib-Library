@@ -20,9 +20,10 @@ We present `MSPLib`, a library of multistage stochastic programming problems to 
 <img width="1015" alt="Synthetic Problems (6-8)" src="https://github.com/bonnkleiford/MSPLib-Problems-Library/assets/37835698/bf407a1c-cd88-41d8-b54f-33a2002b9504">
 <img width="1015" alt="Synthetic Problems (9-10)" src="https://github.com/bonnkleiford/MSPLib-Problems-Library/assets/37835698/409761fd-bd5f-41a1-8b9a-f7d7b4e2f9e9">
 
-%
-% #### Real-World Application Problems:
-% ![MSLP 3](https://user-images.githubusercontent.com/37835698/183904468-9170049b-6ad4-4d2d-b18d-4a134cf7b8db.png)
+<!---
+#### Real-World Application Problems:
+![MSLP 3](https://user-images.githubusercontent.com/37835698/183904468-9170049b-6ad4-4d2d-b18d-4a134cf7b8db.png)
+-->
 
 ### HOW TO USE:
 Each file in the `MSPLib` library follows the following convention:
