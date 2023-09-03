@@ -14,11 +14,10 @@ We present `MSPLib`, a library of multistage stochastic programming problems to 
 ### Multistage Stochastic Linear Programming Problems
 
 #### Synthetic Problems:
-
-<img width="1015" alt="Synthetic Problems (1-3)" src="https://github.com/bonnkleiford/MSPLib-Problems-Library/assets/37835698/cf216907-9764-4e03-9e79-f9258ffdb2fb">
-<img width="1015" alt="Synthetic Problems (4-5)" src="https://github.com/bonnkleiford/MSPLib-Problems-Library/assets/37835698/5eb746a1-5704-46c4-99e3-fd0819742a0a">
-<img width="1015" alt="Synthetic Problems (6-8)" src="https://github.com/bonnkleiford/MSPLib-Problems-Library/assets/37835698/bf407a1c-cd88-41d8-b54f-33a2002b9504">
-<img width="1015" alt="Synthetic Problems (9-10)" src="https://github.com/bonnkleiford/MSPLib-Problems-Library/assets/37835698/409761fd-bd5f-41a1-8b9a-f7d7b4e2f9e9">
+<img width="1015" alt="Synthetic Problems (1-3)" src="https://github.com/bonnkleiford/MSPLib-Library/assets/37835698/0b7f340e-6ce5-4560-a738-4ef71e31f807">
+<img width="1015" alt="Synthetic Problems (4-5)" src="https://github.com/bonnkleiford/MSPLib-Library/assets/37835698/a1995f0b-8191-4e0c-8453-5c489a4ccd19">
+<img width="1015" alt="Synthetic Problems (6-8)" src="https://github.com/bonnkleiford/MSPLib-Library/assets/37835698/b28954c4-7b55-427f-a2b0-01e7d39c6805">
+<img width="1015" alt="Synthetic Problems (9-10)" src="https://github.com/bonnkleiford/MSPLib-Library/assets/37835698/6097250b-e5a3-4678-b7cf-ec2831bfcd62">
 
 ### HOW TO USE:
 Each file in the `MSPLib` library follows the following convention:
