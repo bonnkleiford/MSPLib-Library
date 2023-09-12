@@ -22,7 +22,7 @@ We present `MSPLib`, a library of multistage stochastic programming problems to 
 ### HOW TO USE:
 Each file in the `MSPLib` library follows the following convention:
 <p align="center">
-  <img width="557" alt="Screenshot 2021-05-20 at 21 18 13" src="https://user-images.githubusercontent.com/37835698/119036315-e73f4c80-b9b0-11eb-8a6f-24b7f44ff819.png">
+  <img width="643" alt="Screenshot 2023-09-12 at 21 44 23" src="https://github.com/bonnkleiford/MSPLib-Library/assets/37835698/2b0b4f56-8b8c-4a22-8d88-1bdec9432f3a">
 </p>
 
 If you want to obtain a particular file - problem model, lattice, first stage solution, bounds plot, etc - check the Problem Instance Chart above for the file name of the document following the convention.
