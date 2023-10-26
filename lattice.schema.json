@@ -1,0 +1,51 @@
+{
+    "$schema": "https://json-schema.org/schema#",
+    "$id": "https://github.com/bonnkleiford/MSPLib-Library/lattice.schema.json",
+    "title": "The schema for MSPFormat representation of an MSP lattice.",
+    "type": "object",
+    "required": ["nodeNumber"],
+    "properties": {
+    "nodeNumber": {
+        "description": "An object containing the realization details for every node of the lattice.",
+        "type": "object",
+        "additionalProperties":  {
+            "description": "A node of the lattice.",
+            "type": "object",
+                "required": ["stage", "state", "successors"],
+                "properties": {
+                    "stage": {
+                        "description": "Problem stage where the random variable occurs.",
+                        "type": "number"
+                    },
+                    "state": {
+                        "description": "The name and value of the random variables.",
+                        "type": "object",
+                        "additionalProperties": {
+                            "description": " Name and value of each random variable.",
+                            "type": "object",
+                              "required": ["name"],
+                             "properties": {
+                                "name": {"type": "number"}
+                            }
+                        }
+                    },
+                    "successors": {
+                        "description": "The node names and transition probability to successor nodes.",
+                           "type": "object",
+                        "additionalProperties": {
+                            "description": "Node name and transition probability to each successor node.",
+                            "type": "object",
+                              "required": ["nodeNumber"],
+                             "properties": {
+                                "name": {"type": "number"}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+

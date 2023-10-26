@@ -1,0 +1,104 @@
+{
+    "$schema": "https://json-schema.org/schema#",
+    "$id": "https://github.com/bonnkleiford/MSPLib-Library/problem.schema.json",
+    "title": "The schema for MSPFormat representation of an MSP problem.",
+    "type": "object",
+    "required": ["version", "name", "maximize", "variables","constraints" ],
+    "properties": {
+        "version": {
+            "description": "Version of MSPFormat model.",
+            "type": "string"
+        },
+        "name": {
+            "description": "The name of the problem model.",
+            "type": "string"
+        },
+        "maximize": {
+            "description": "The objective function sense.",
+            "type": "boolean"
+        },
+        "variables": {
+            "description": "An array containing the variables of the problem.",
+             "type": "array",
+            "items":  {
+                "type": "object",
+                  "required": ["name", "stage", "obj", "lb", "ub","type"],
+                 "properties": {
+                    "name": {
+                        "description": "Name of the variable.",
+                        "type": "string"
+                    },
+                    "stage": {
+                        "description": "Problem stage where the variable occurs.",
+                        "type": "number",
+                    },
+                    "obj": {
+                        "description": "Objective value coefficient of the variable.",
+                        "type": "array",
+                        "items": {"type": "number"}
+                    },
+                    "lb": {
+                        "description": "Lower bound value of the variable.",
+                           "type": "array",
+                           "items": {"type": "number"}
+                    },
+                     "ub": {
+                        "description": "Upper bound value of the variable.",
+                           "type": "array",
+                          "items": {"type": "number"}
+                    },
+                    "type": {
+                        "description": "Type of the variable.",
+                           "type": "string"
+                    }
+                 }
+            }
+        },
+        "constraints": {
+            "description": "An array containing the constraints of the problem.",	
+             "type": "array",
+            "items":  {
+                "type": "object",
+                  "required": ["name", "type", "lhs", "rhs"],
+                 "properties": {
+                    "name": {
+                        "description": "Name of the variable.",
+                           "type": "string"
+                    },
+                    "type": {
+                        "description": "Type of the variable.",
+                           "type": "string"
+                    },
+                    "lhs": {
+                        "description": "An array containing the terms in the left-hand side of the constraints of the problem.",
+                         "type": "array",
+                        "items":  {
+                            "type": "object",
+                              "required": ["name", "stage", "coefficient"],
+                              "properties": {
+                                "name": {
+                                    "description": "Name of the variable.",
+                                    "type": "string"
+                                },
+                                "stage": {
+                                    "description": "Problem stage which the variable occurs.",
+                                    "type": "number"
+                                },
+                                "coefficient": {
+                                    "description": "Constraint coefficient of the variable.",
+                                    "type": "array",
+                                    "items": {"type": "number"}
+                                }
+                            }
+                        }
+                    },
+                    "rhs": {
+                        "description": "An array containing the terms in the right-hand side of the constraints of the problem.",
+                        "type": "array",
+                        "items":  {"type": ["string", "number"]}
+                    }
+                }
+            }
+        }
+    }
+}
