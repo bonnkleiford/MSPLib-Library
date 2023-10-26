@@ -3,7 +3,7 @@
     "$id": "https://github.com/bonnkleiford/MSPLib-Library/problem.schema.json",
     "title": "The schema for MSPFormat representation of an MSP problem.",
     "type": "object",
-    "required": ["version", "name", "maximize", "variables","constraints" ],
+    "required": ["version", "name", "maximize", "variables", "constraints"],
     "properties": {
         "version": {
             "description": "Version of MSPFormat model.",
@@ -19,59 +19,65 @@
         },
         "variables": {
             "description": "An array containing the variables of the problem.",
-             "type": "array",
+            "type": "array",
             "items":  {
                 "type": "object",
-                  "required": ["name", "stage", "obj", "lb", "ub","type"],
+                  "required": ["name", "stage", "obj", "lb", "ub", "type"],
                  "properties": {
                     "name": {
                         "description": "Name of the variable.",
                         "type": "string"
                     },
                     "stage": {
-                        "description": "Problem stage where the variable occurs.",
-                        "type": "number",
+                        "description": "The 0-indexed stage where the variable occurs.",
+                        "type": "integer",
+                        "minimum": 0
                     },
                     "obj": {
                         "description": "Objective value coefficient of the variable.",
-                        "type": "array",
-                        "items": {"type": "number"}
+                        "$ref": "#/definitions/AffineFunction"
                     },
                     "lb": {
                         "description": "Lower bound value of the variable.",
-                           "type": "array",
-                           "items": {"type": "number"}
+                        "$ref": "#/definitions/AffineFunction"
                     },
                      "ub": {
                         "description": "Upper bound value of the variable.",
-                           "type": "array",
-                          "items": {"type": "number"}
+                        "$ref": "#/definitions/AffineFunction"
                     },
                     "type": {
                         "description": "Type of the variable.",
-                           "type": "string"
+                        "enum": [
+                            "CONTINUOUS",
+                            "BINARY",
+                            "INTEGER"
+                        ]
                     }
                  }
             }
         },
         "constraints": {
             "description": "An array containing the constraints of the problem.",	
-             "type": "array",
+            "type": "array",
             "items":  {
                 "type": "object",
-                  "required": ["name", "type", "lhs", "rhs"],
+                  "required": ["type", "lhs", "rhs"],
                  "properties": {
                     "name": {
-                        "description": "Name of the variable.",
-                           "type": "string"
+                        "description": "Name of the constrainn.",
+                        "type": "string"
                     },
                     "type": {
-                        "description": "Type of the variable.",
-                           "type": "string"
+                        "description": "Type of the inequality.",
+                        "enum": [
+                            "EQ",
+                            "LEQ",
+                            "GEQ"
+                        ]
                     },
                     "lhs": {
                         "description": "An array containing the terms in the left-hand side of the constraints of the problem.",
-                         "type": "array",
+                        "type": "array",
                         "items":  {
                             "type": "object",
                               "required": ["name", "stage", "coefficient"],
@@ -82,22 +88,54 @@
                                 },
                                 "stage": {
                                     "description": "Problem stage which the variable occurs.",
-                                    "type": "number"
+                                    "type": "integer",
+                                    "minimum": 0
                                 },
                                 "coefficient": {
                                     "description": "Constraint coefficient of the variable.",
-                                    "type": "array",
-                                    "items": {"type": "number"}
+                                    "$ref": "#/definitions/AffineFunction"
                                 }
                             }
                         }
                     },
                     "rhs": {
                         "description": "An array containing the terms in the right-hand side of the constraints of the problem.",
-                        "type": "array",
-                        "items":  {"type": ["string", "number"]}
+                        "$ref": "#/definitions/AffineFunction"
                     }
                 }
+            }
+        }
+    },
+    "definitions": {
+        "AffineFunction": {
+            "type": "array",
+            "items": {
+                "oneOf": [{
+                    "description": "The function is a constant",
+                    "type": "number"
+                }, {
+                    "description": "The function is a random variable, or `inf` or `-inf`",
+                    "type": "string"
+                }, {
+                    "description": "The function is some function of the random variables",
+                    "type": "object",
+                    "properies": {
+                        "ADD": {
+                            "oneOf": [{
+                                "type": "string"
+                            }, {
+                                "type": "number"
+                            }]
+                        },
+                        "MUL": {
+                            "oneOf": [{
+                                "type": "string"
+                            }, {
+                                "type": "number"
+                            }]
+                        }
+                    }
+                }]
             }
         }
     }
