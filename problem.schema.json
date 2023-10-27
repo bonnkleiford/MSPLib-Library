@@ -6,15 +6,15 @@
     "required": ["version", "name", "maximize", "variables", "constraints"],
     "properties": {
         "version": {
-            "description": "Version of MSPFormat model.",
+            "description": "The version of MSPFormat model.",
             "type": "string"
         },
         "name": {
-            "description": "The name of the problem model.",
+            "description": "The name of the problem model. Where possible, this should include additional information such as the name of the author and any literature citation.",
             "type": "string"
         },
         "maximize": {
-            "description": "The objective function sense.",
+            "description": "The objective function sense. This must be true for maximization problems and false for minimizationn",
             "type": "boolean"
         },
         "variables": {
@@ -25,33 +25,29 @@
                   "required": ["name", "stage", "obj", "lb", "ub", "type"],
                  "properties": {
                     "name": {
-                        "description": "Name of the variable.",
+                        "description": "The name of the variable. Every variable within the same stage must have a unique name.",
                         "type": "string"
                     },
                     "stage": {
-                        "description": "The 0-indexed stage where the variable occurs.",
+                        "description": "The 0-indexed stage that the variable appears as a decision in.",
                         "type": "integer",
                         "minimum": 0
                     },
                     "obj": {
-                        "description": "Objective value coefficient of the variable.",
+                        "description": "An expression for the linear objective coefficient of the variable.",
                         "$ref": "#/definitions/AffineFunction"
                     },
                     "lb": {
-                        "description": "Lower bound value of the variable.",
+                        "description": "An expression for the lower bound of the variable.",
                         "$ref": "#/definitions/AffineFunction"
                     },
                      "ub": {
-                        "description": "Upper bound value of the variable.",
+                        "description": "An expression for the upper bound of the variable.",
                         "$ref": "#/definitions/AffineFunction"
                     },
                     "type": {
-                        "description": "Type of the variable.",
-                        "enum": [
-                            "CONTINUOUS",
-                            "BINARY",
-                            "INTEGER"
-                        ]
+                        "description": "The type of the variable.",
+                        "enum": ["CONTINUOUS", "BINARY", "INTEGER"]
                     }
                  }
             }
@@ -64,35 +60,31 @@
                   "required": ["type", "lhs", "rhs"],
                  "properties": {
                     "name": {
-                        "description": "Name of the constrainn.",
+                        "description": "The name of the constraint.",
                         "type": "string"
                     },
                     "type": {
-                        "description": "Type of the inequality.",
-                        "enum": [
-                            "EQ",
-                            "LEQ",
-                            "GEQ"
-                        ]
+                        "description": "The type of the inequality EQ for ==, LEQ for <=, and GEQ for >=.",
+                        "enum": ["EQ", "LEQ", "GEQ"]
                     },
                     "lhs": {
                         "description": "An array containing the terms in the left-hand side of the constraints of the problem.",
                         "type": "array",
                         "items":  {
                             "type": "object",
-                              "required": ["name", "stage", "coefficient"],
-                              "properties": {
+                            "required": ["name", "stage", "coefficient"],
+                            "properties": {
                                 "name": {
-                                    "description": "Name of the variable.",
+                                    "description": "The name of the variable.",
                                     "type": "string"
                                 },
                                 "stage": {
-                                    "description": "Problem stage which the variable occurs.",
+                                    "description": "The 0-based index of the stage in which the variable appears as a decision variable.",
                                     "type": "integer",
                                     "minimum": 0
                                 },
                                 "coefficient": {
-                                    "description": "Constraint coefficient of the variable.",
+                                    "description": "An expression for the linear constraint coefficient of the variable.",
                                     "$ref": "#/definitions/AffineFunction"
                                 }
                             }
@@ -114,26 +106,14 @@
                     "description": "The function is a constant",
                     "type": "number"
                 }, {
-                    "description": "The function is a random variable, or `inf` or `-inf`",
+                    "description": "The function is a random variable, or `inf` or `-inf`. The name of the random variable must match those defined in the lattice.json",
                     "type": "string"
                 }, {
-                    "description": "The function is some function of the random variables",
+                    "description": "The function is a function of the random variables",
                     "type": "object",
                     "properies": {
-                        "ADD": {
-                            "oneOf": [{
-                                "type": "string"
-                            }, {
-                                "type": "number"
-                            }]
-                        },
-                        "MUL": {
-                            "oneOf": [{
-                                "type": "string"
-                            }, {
-                                "type": "number"
-                            }]
-                        }
+                        "ADD": {"oneOf": [{"type": "string"}, {"type": "number"}]},
+                        "MUL": {"oneOf": [{"type": "string"}, {"type": "number"}]}
                     }
                 }]
             }
