@@ -3,8 +3,8 @@
     "$id": "https://github.com/bonnkleiford/MSPLib-Library/lattice.schema.json",
     "title": "The schema for MSPFormat representation of an MSP lattice.",
     "type": "object",
+    "description": "An object that maps the name to information about each node.",
     "additionalProperties":  {
-        "description": "A node of the lattice.",
         "type": "object",
         "required": ["stage", "state", "successors"],
         "properties": {
@@ -27,6 +27,7 @@
                     "maximum": 1
                 }
             }
-        }
+        },
+        "additionalProperties": false
     }
 }
