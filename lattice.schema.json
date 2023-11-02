@@ -1,0 +1,33 @@
+{
+    "$schema": "https://json-schema.org/schema#",
+    "$id": "https://github.com/bonnkleiford/MSPLib-Library/lattice.schema.json",
+    "title": "The schema for MSPFormat representation of an MSP lattice.",
+    "type": "object",
+    "description": "An object that maps the name to information about each node.",
+    "additionalProperties":  {
+        "type": "object",
+        "required": ["stage", "state", "successors"],
+        "properties": {
+            "stage": {
+                "description": "The 0-indexed stage that the node appears in.",
+                "type": "integer",
+                "minimum": 0
+            },
+            "state": {
+                "description": "An object that maps the name of the random variable to the value of its realization.",
+                "type": "object",
+                "additionalProperties": {"type": "number"}
+            },
+            "successors": {
+                "description": "An object that maps the child node number to the probability of transitioning to that node.",
+                "type": "object",
+                "additionalProperties": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                }
+            }
+        },
+        "additionalProperties": false
+    }
+}
